@@ -35,11 +35,22 @@ public class P0_1 {
 
         int nC = 1;
         while(in.hasNextLine()){
-            System.out.print(nC);
+            System.out.print(toLineNumberString(nC));
             System.out.println(in.nextLine());
             nC = nC + 1;
         }
 
+    }
+
+    private static String toLineNumberString(int nLine){
+
+        if (nLine < 1){
+            return "00:  ";
+        } else if (nLine < 10){
+            return "0" + nLine + ":  ";
+        } else {
+            return nLine + ":  ";
+        }
     }
 
 
