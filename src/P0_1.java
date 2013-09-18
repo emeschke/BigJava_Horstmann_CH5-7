@@ -21,6 +21,24 @@ public class P0_1 {
             //print the line number to console, then increment counter
             //print the line content to console + newline
 
+        Scanner in = new Scanner(System.in);
+        //C:\dev\java\pros\proArrays\instructions.txt as test input
+        System.out.print("Add line numbers. What is the absolute path to your file?:");
+        String strPath = in.next();
+        File fileInput = new File(strPath);
+        try {
+            in = new Scanner(fileInput);
+        } catch (FileNotFoundException e) {
+            System.out.println("There's been an error: " + e.getMessage());
+            return;
+        }
+
+        int nC = 1;
+        while(in.hasNextLine()){
+            System.out.print(nC);
+            System.out.println(in.nextLine());
+            nC = nC + 1;
+        }
 
     }
 
