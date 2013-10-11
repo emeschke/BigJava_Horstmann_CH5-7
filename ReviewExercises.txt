@@ -14,6 +14,16 @@ Since Java5, you can even specify a variable number of arguments aka varargs whi
 Notice that the varargs parameter "String... strNickNames" must be listed last.  Calling this method would look something like this:
  String[] strReturnValues = someMethod(99, "Jim", "Jamie", "James", "Jamey", "Jimmy", "Jimbo");
 
+R5.10 The scope of the variables is as follows:
+--int i, int b are in the scope of main.
+--int i that is passed as an input to method f has a scope the entire body of method f
+--in n in f has a scope only in f.
+--int a and b in method g has a scope in the entire method g.
+--int n in method g has a scope only in the for loop in method g, but it is only initialized once.
+--int i in method g has a scope of ONE iteration of the for loop, so it is initialzed every time.
+
+The output of the function will be to print 26.
+
 
 
 
