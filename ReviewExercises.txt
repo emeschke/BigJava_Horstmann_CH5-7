@@ -24,7 +24,81 @@ R5.10 The scope of the variables is as follows:
 
 The output of the function will be to print 26.
 
+R5.14 The false swap method doesn't swap the two variables in the method because they are primitives and are passed
+by value, not by reference.  Passed by value means that a copy of the value is passed to the function, while passed
+by reference means the memory address is passed to the function.  Within the method, the values are swapped as intended,
+but those swapped values are not modified outside the scope of the method, so the original values from main() remain.
 
+R6.6
+A: In code block A the problem is that the for loop runs to <= 10.  Because the array is 0 indexed the 10th element is
+actually in the [9]th slot of the array so calling the [10]th slot will be out of range.
+B: In code block B the variable int[] values is never initialized with the keyword new int[10].  This means it doesn't
+receive a block in memory and will return an error.
+
+R6.10
+A. This is incorrect because you can't use prmitives in Java arrays (need Integer, the int wrapper class instead of int.)
+B. B is incorrect because you don't tell the computer what sort of ArrayList to initialize when it allocates memory for
+the ArrayList.  Need the <Integer> on the right side of the equals sign.
+C. Need the () after <Integer> on the right side of =.  Not sure why, a matter of language syntax.
+D. The ArrayList is of size 0 when it is initialized.  It is necessary then to use .add because .set only works to replace
+existing elements, and there are none to replace.
+E. .add require two parameters.  An index and a value.  Only one parameter is passed to the method.
+
+R6.11 The index of an array is a 0-based list that refers to a slot in the array.  If the size of the array is N, the
+index of the array is integers from 0,N-1.  Legal index values are positive integers with some upper bound either
+determined by memory size or coded within the java programming language.  A bounds error is when the program tries to call
+an array index that doesn't exist.  The bounds error results.
+
+R6.21 Pseudocode:
+    create variable temp = 0th element in array
+    for loop over the first N-1 elements of the array length N (from 0 to length-2)
+        set the ith element = to the (i+1)st element
+    set the last element in the array equal to temp
+
+R6.23 Pseudocode:
+    newVal to insert into original array of size N
+    create a new array of size N+1 (original was size N) //this is because array size is constant
+    create int called sortRight=0.  //if it is 0 we will move from original to new in the same position, otherwise
+                                    // it will = 1 and we will insert it one to the right in the new array
+    for loop over values in original array (0 to N-1)
+        if sortRight equals 0 //new element has been inserted yet
+            if (i-1)st element < newVal < ith element OR if newVal = ith element in original array
+                ith element in new array equals new value
+                sortRight = 1
+            else ith element in new array = ith element in original array
+        else ith element in original array = (i+1)th element in new array
+
+    //The for loop checks to see whether the new element as been inserted yet.  If it hasn't, it checks to see whether
+    //it should be at the ith location.  If it should be inserted it inserts it and notes that.  If it shouldn't be
+    //inserted it copies the original value.  If sortRight has already been inserted then it copies the original value
+    //to one slot forward in the new array.
+
+R6.25  When passed to methods, both objects and primitives are passed by value rather than reference.  That means that
+what is being modified within the method is a copy of the values that are passed into the method rather than the object
+itself.  The function should return the array of doubles in order to work correctly, otherwise after it runs the original
+values will not have been modified.
+
+R7.6.  A checked exception is one that the compiler knows is associated with a certain command and CHECKS to see that
+the programs handles and acknowledges before allowing successful compilation.  An unchecked exception is one that has
+to do with errors within the code rather than errors that are unavoidable even with perfectly written code.  The
+programmer must use the throws word to declare checked exceptions; he can choose to declare unchecked ones with "throws."
+
+R7.7 It isn't necessary to declare that the method might throw an indexOutOfBounds exception because it is not a
+checked expression.  The compiler assumes the programmer is smart enough to write good code so it won't happen.
+
+R7.9 For a checked exception, if the method does not have a matching catch clause the program will not compile unless
+the exception is acknowledged in the method definition (public static int examples() throws ...)  If it is a checked
+exception that is acknowledged in the method definition or any unchecked exception the program terminates at runtime
+with an error.
+
+R7.11 It is unclear what type means.  All exceptions are subtypes of the java.lang.Exception class (from the java docs,)
+which would seem to mean that all exceptions are of the same type.  Perhaps what the question is trying to ask is
+whether the name of the exception is always the same as it is identified in the catch block that handles it.  It is
+not necessarily the same because there are sub-classes of exceptions.  A catch (runtime exception) would handle any sort
+of subclass under it (ie an InputMismatch.)
+
+R7.14 From the docs.  Next can return a NoSuchElementException or an IllegalStateException.  nextInt can throw those two
+as well as an InputMismatch exception.  They are all unchecked expressions.
 
 
 
