@@ -17,7 +17,7 @@ public class P7_2 {
         String inFile = reader.next();
 
         //Prompt the user to enter a destination file.
-        System.out.print("\nPlese enter a destination file:");
+        System.out.print("\nPlease enter a destination file:");
         String outFile = reader.next();
 
         //Construct the Scanner and PrintWriter objects for reading and writing.
@@ -40,7 +40,6 @@ public class P7_2 {
         out.close();
 
 
-        in.close();
-        out.close();
+
     }
 }

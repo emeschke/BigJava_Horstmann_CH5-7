@@ -8,6 +8,8 @@ import java.util.Collections;
  * Date: 10/10/13
  * Time: 9:53 AM
  * To change this template use File | Settings | File Templates.
+ Main calls a method that creates a random list of size n and then sorts it.  It calls that method twice.  It then
+ passes those two lists to a method that sorts it and returns the output listarray.  It prints all that.
  */
 public class P6_28 {
 
@@ -40,7 +42,7 @@ public class P6_28 {
         System.out.print("Merged List: ");
 
         for (int i = 0; i < sortedLists.size(); i++) {
-            System.out.print(sortedLists);
+            System.out.print(sortedLists.get(i)+ " ");
             }
     }
 
@@ -60,7 +62,42 @@ public class P6_28 {
     }
 
     public static ArrayList<Integer> mergeSorted(ArrayList<Integer> a, ArrayList<Integer> b){
-         ArrayList<Integer> mergeArrays = new ArrayList<Integer>();
+        ArrayList<Integer> mergeArrays = new ArrayList<Integer>();
+        int counterA = 0;
+        int counterB = 0;
+        int counterMerge = 0;
+        //While the total of the a counter and b counter are less than the sum of the size of the two arrayLists.
+        while (counterMerge < (a.size() + b.size())){
+            //Check if the final value has been used, and if so go with the other one.
+            //System.out.println(counterA + " " + counterB + " " + counterMerge);
+            if (counterA == a.size()){
+                mergeArrays.add(counterMerge, b.get(counterB));
+                counterB +=1;
+                counterMerge +=1;
+            }
+            else if (counterB == b.size()){
+                mergeArrays.add(counterMerge, a.get(counterA));
+                counterA += 1;
+                counterMerge += 1;
+            }
+            //Then implement the intuitive way of merging, compare the two and add the minimum one, then bump the
+            //counter += 1.
+            else{
+                int aVal = a.get(counterA);
+                int bVal = b.get(counterB);
+                //System.out.println("****" + aVal + " " + bVal);
+                if (aVal < bVal){
+                    mergeArrays.add(counterMerge, aVal);
+                    counterA += 1;
+                    counterMerge += 1;
+                }
+                else{
+                    mergeArrays.add(counterMerge, bVal);
+                    counterB += 1;
+                    counterMerge += 1;
+                    }
+            }
+        }
         return mergeArrays;
     }
 }

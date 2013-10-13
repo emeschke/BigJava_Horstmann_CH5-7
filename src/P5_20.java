@@ -5,10 +5,8 @@
  * Time: 10:56 AM
  * To change this template use File | Settings | File Templates.
  *
- * Leap years.  Write a method
- *       public static boolean isLeapYear(int Year)
- * that tests whether a year is a leap year; that is, a year with 366 days.  In this exercise, use multiple if
- * statements and return statements to return the result as soon as you know it.
+Program implements the leap year algorithm and then checks it over the values from 1900 to 2025 on even years (odd
+ years are never leap years.
  *
  */
 public class P5_20 {

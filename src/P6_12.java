@@ -4,6 +4,7 @@
  * Date: 10/10/13
  * Time: 9:04 AM
  * To change this template use File | Settings | File Templates.
+ Program generates a random sequence of 20 values of dice rolls and uses the pseudocode to put () around the runs.
  */
 public class P6_12 {
 

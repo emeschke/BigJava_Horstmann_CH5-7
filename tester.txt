@@ -1,0 +1,8 @@
+McDonalds;Dinner;45.23;10/8/2012
+Arbys;Lodging;89.34;10/7/2011
+Arbys;Dinner;24.45;10/9/2013
+Subway;67.00;6/21/2012
+Wendys;Conference;67.22;8/8/2012
+Taco Bell;Conference;7.24;4/2/2013
+Jack in the Box;Lodging;112.00;1/8/2012
+Del Taco;Dinner;No Amount;7/7/2012
