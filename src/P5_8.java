@@ -24,12 +24,12 @@ public class P5_8 {
 
         //Read in the line word by word and send it to th scramble method.
         Scanner in = new Scanner(System.in);
-        ArrayList<String> sWord = new ArrayList<String>();
+        String[] sWord = in.nextLine().split(" ");
 
-        for (int i = 0; i < 0; i++) {
+        for (int i = 0; i < sWord.length; i++) {
+            System.out.print(scramble(sWord[i] + " "));
 
         }
-
     }
     public static String scramble(String word){
         //if word length is < 4 return word.
@@ -45,7 +45,7 @@ public class P5_8 {
             flip2 = (int) (Math.random()*(word.length()-2)+1);
         } while(flip1 == flip2);
 
-        System.out.println(flip1 +" "+ flip2);
+        //System.out.println(flip1 +" "+ flip2);
         //Create a new array to flip, flip the letters and return the new array.
 
         char[] cFlip = word.toCharArray();
